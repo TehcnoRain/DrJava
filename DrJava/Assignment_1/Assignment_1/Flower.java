@@ -20,10 +20,10 @@ public class Flower {
       yertle.setPenColor(RED);     
       yertle.right(PI/6);
       
-      for(int i = 0; i<4; i++)
+      for(int i = 0; i<8; i++)
       {  
         
-      for(int x = 0; x<4; x++) 
+      for(int x = 0; x<8; x++) 
         
       {
         
