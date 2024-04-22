@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="false" build="" main="" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="Brightness.java" package="Lab_5_2" timestamp="20-Oct-2015 13:10:15">
+        <select from="1144" to="1144"/>
+        <scroll column="630" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

@@ -1,0 +1,80 @@
+package Assignment_5;
+
+
+import Media.*;                  // for Media classes
+import java.awt.*;               // for Color objects and methods
+import static java.lang.Math.*;  // for math constants and functions
+import static java.awt.Color.*;  // for Color constants
+
+
+/** This class ...
+  *
+  * @author Jessica Petkau
+  * @version 1.0 (<date>)                                                        */
+
+public class CleanUp{
+  
+  private SoundPlayer player;
+
+    
+  Sound theSound; 
+
+    
+    // instance variables
+    
+    
+    /** This constructor ...                                                     */
+    
+    public CleanUp ( ) {
+        
+      Sound original;
+      Sound repeated;
+      
+player=new SoundPlayer();
+  original=new Sound();
+  player.placeSound(original);
+  player.waitForUser();
+  repeated= repeat (original,3);
+  player.placeSound (repeated);
+  player.close();
+ repeated.save();
+    }
+      
+    private Sound repeat ( Sound aSound, int nTimes) {
+    
+      Sound result;
+      int numSamp;
+      int pos;
+      int amp;
+      
+      numSamp = aSound.getNumSamples ();
+      result = new Sound (numSamp*nTimes,aSound);
+      pos=0;
+      for (int j=1;j<=nTimes ; j++){
+        for (int i=0;i<numSamp;i++){
+        amp=aSound.getSample(i).getAmp();
+        result.getSample(pos).setAmp(amp);
+        pos = pos +1;;
+        }
+      }
+      return result;
+
+      
+    }
+
+
+        // local variables
+        
+        // statements
+        
+     // constructor
+    
+    
+    // methods
+
+    
+    
+    public static void main ( String[] args ) { CleanUp s = new CleanUp(); };
+    
+    
+} // <className>

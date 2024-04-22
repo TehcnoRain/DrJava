@@ -1,0 +1,46 @@
+package Assignment_7; 
+ 
+import BasicIO.*; 
+import java.text.DecimalFormat; 
+ 
+public class Item{ 
+   
+  private String actNum; 
+  private String name; 
+  private double previous; 
+   
+  public Item(ASCIIDataFile from) 
+  { 
+    actNum = from.readString(); 
+ 
+    if(!from.isEOF()) 
+    { 
+      name = from.readString(); 
+      previous = from.readDouble(); 
+    } 
+  } 
+  public String getAccountNum()  
+  { 
+    return actNum; 
+  } 
+  public String getName() 
+  { 
+    return name; 
+  } 
+  public double getPrevious()  
+  { 
+    return previous; 
+  } 
+  public double charge(double num)  
+  { 
+    previous = Math.round((num - previous)*(1.525)*100)/100.0; // rounds to two decimal places 
+    return previous; 
+  } 
+  public void write(ASCIIOutputFile to)  
+  { 
+    to.writeString(actNum); 
+    to.writeString(name); 
+    to.writeDouble(previous); 
+    to.newLine(); 
+  } 
+}

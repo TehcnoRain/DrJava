@@ -1,0 +1,134 @@
+package Assignment_6;
+
+import BasicIO.*;
+import Media.*;
+import java.awt.*;
+import static java.awt.Color.*;
+import static java.lang.Math.*;
+
+public class Pixelation{
+  
+  PictureDisplayer display;
+  Picture pic;
+  
+  public Pixelation(){
+    display = new PictureDisplayer();
+    pic     = new Picture();
+    
+    display.placePicture(pic);
+    
+    display.waitForUser();
+    
+    pic = blur(pic, 4);
+    
+    display.close();
+  };
+  
+  public Picture blur(Picture picture, int effect){
+    Color c;
+    Picture temp = picture;
+    Pixel p = picture.getPixel(0, 0);
+    int x = 0;
+    int y = 0;
+    
+    int R = 0;
+    int G = 0;
+    int B = 0;    
+    
+    while (picture.hasNext()){
+      c = avg(temp, x, y, effect);
+      
+      paint(temp, x, y, effect, c);
+      
+      for (int i = 0; i < effect; i++)
+        p = temp.next();
+      
+      x = x + effect;
+      if (x == picture.getWidth()){
+        x = 0;
+        y = y + effect;
+      }      
+    }
+    return temp;
+  }
+  
+  public Color avg(Picture picture, int x, int y, int effect){
+    Pixel p;
+    
+    try{
+      p = picture.getPixel(x, y);
+    }catch(PixelOutOfBoundsException bob){
+      return new Color(0, 0, 0);
+    }
+    
+    int ox = x;
+    int oy = y;
+    
+    int R = 0;
+    int G = 0;
+    int B = 0;
+    
+    for (int i = 0; i < effect; i++){
+      y = oy + i;
+      for (int j = 0; j < effect; j++){
+        x = ox + j;
+        try{
+          p = picture.getPixel(x, y);
+        }catch(PixelOutOfBoundsException bob){
+          break;
+        }
+        G = G + p.getGreen();
+        B = B + p.getBlue();
+        R = R + p.getRed();
+      }
+           
+    }
+    
+    R = R/(effect * effect);
+    B = B/(effect * effect);
+    G = G/(effect * effect);
+      
+    Color average = new Color(R, G, B);
+    return average;
+  }
+    
+    public void paint(Picture picture, int x, int y, int effect, Color c){
+      Pixel p;
+    
+      try{
+        p = picture.getPixel(x, y);
+      }catch(PixelOutOfBoundsException bob){
+        
+      }
+      
+      int ox = x;
+      int oy = y;
+    
+      int R = c.getRed();
+      int G = c.getGreen();
+      int B = c.getBlue();
+      
+      for (int i = 0; i < effect; i++){
+        y = oy + i;
+        for (int j = 0; j < effect; j++){
+          x = ox + j;
+          try{
+            p = picture.getPixel(x, y);
+          }catch(PixelOutOfBoundsException bob){
+            break;
+          }
+          p.setRed(R);
+          p.setBlue(B);
+          p.setGreen(G);
+        }
+      }
+    }
+    
+    /*public boolean enoughSpace(int effect){
+      for (int i = 0; i < effect; i++){
+        
+      }
+    }*/
+    
+  public static void main ( String[] args ) { Pixelation f = new Pixelation(); };
+  }

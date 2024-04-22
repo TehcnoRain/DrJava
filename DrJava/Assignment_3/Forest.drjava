@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="false" build="Assignment_3/" main="" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="Forest.java" package="Assignment_3" timestamp="26-Oct-2015 07:05:46">
+        <select from="2381" to="2381"/>
+        <scroll column="1383" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

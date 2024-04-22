@@ -1,0 +1,50 @@
+package Assignment_1; 
+ 
+ 
+import Media.*;                  
+import java.awt.*;               
+import static java.lang.Math.*; 
+import static java.awt.Color.*;  
+                                                         
+public class Flower {
+  
+     private TurtleDisplayer display;
+     private Turtle yertle;
+     
+     public Flower ( ) 
+     { 
+       
+      display = new TurtleDisplayer();
+      yertle = new Turtle();
+      display.placeTurtle(yertle);
+      yertle.setPenColor(RED);     
+      yertle.right(PI/6);
+      
+      for(int i = 0; i<4; i++)
+      {  
+        
+      for(int x = 0; x<4; x++) 
+        
+      {
+        
+         yertle.penDown();
+         yertle.forward(40);
+         yertle.left(PI/3);
+         yertle.forward(40);
+         yertle.left(2*PI/3);
+         
+       }
+      
+       yertle.right(PI/4);       
+       yertle.penUp();
+       
+       }   
+      
+      display.close();  
+      
+    };  
+                                                                     
+    public static void main ( String[] args ) { Flower s = new Flower(); }; 
+   
+     }  
+

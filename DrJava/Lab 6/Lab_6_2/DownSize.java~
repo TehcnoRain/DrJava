@@ -1,0 +1,62 @@
+package Lab_6_2;
+
+
+import Media.*;                  // for Media classes
+import java.awt.*;               // for Color objects and methods
+import static java.lang.Math.*;  // for math constants and functions
+import static java.awt.Color.*;  // for Color constants
+
+
+/** This class ...
+  *
+  * @author <your name>
+  * @version 1.0 (<date>)                                                        */
+
+public class DownSize 
+{
+    
+    
+    // instance variables
+    private PictureDisplayer display;
+    
+    /** This constructor ...                                                     */
+    
+    public DownSize ( ) 
+    {
+      Picture  pic;
+      
+      pic = new Picture();
+      display = new PictureDisplayer(pic);      
+      display.close();
+      pic = crop(pic , 275, 275, 100, 100);
+      display = new PictureDisplayer(pic);   
+      display.waitForUser();
+      display.close();
+                 
+      pic.save();
+    }; // constructor
+    
+    private Picture crop(Picture aPic, int x, int y, int width, int height)
+    {
+      Picture result;
+     result = new Picture(width, height);
+     
+     for(int r=0; r<height; r++)
+     {
+       for(int c = 0; c < width; c++)
+       {
+         result.getPixel(c,r).setColor(aPic.getPixel(x+c,y+r).getColor());
+       }
+       }
+     return result;
+     }
+    
+    
+    // methods
+    
+
+    
+    public static void main ( String[] args ) { DownSize s = new DownSize(); };
+    
+    
+} // DownSize

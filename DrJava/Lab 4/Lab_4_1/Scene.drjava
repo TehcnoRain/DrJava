@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="false" build="Lab_4_1/" main="" root="Lab_4_1/" work="Lab_4_1/">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="Scene.java" package="Lab_4_1" timestamp="06-Oct-2015 12:37:58">
+        <select from="1333" to="1333"/>
+        <scroll column="441" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>
